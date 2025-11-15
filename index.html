@@ -182,6 +182,7 @@
             border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
+            min-height: 200px;
         }
         
         .section:hover {
@@ -1074,8 +1075,7 @@
             navigator.clipboard.writeText(formSummaryText).then(() => {
                 // Open WhatsApp with pre-filled message
                 const message = encodeURIComponent('Hi Obay! I\'ve completed the Meta Chatbot Discovery Form. Here are my responses:\n\n' + formSummaryText);
-                // Note: Replace with actual WhatsApp number in format: 1234567890
-                window.open(`https://wa.me/?text=${message}`, '_blank');
+                window.open(`https://wa.me/201274766610?text=${message}`, '_blank');
             }).catch(err => {
                 alert('Please copy the responses manually and send them via WhatsApp to Obay');
             });

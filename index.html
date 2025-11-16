@@ -13,7 +13,7 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e40af 75%, #3b82f6 100%);
             min-height: 100vh;
             padding: 40px 20px;
             position: relative;
@@ -107,14 +107,21 @@
         }
         
         .header .robot-icon {
-            font-size: 50px;
-            margin-bottom: 15px;
-            animation: bounce 2s infinite;
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: pulse 3s infinite;
+            filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8));
         }
         
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8));
+            }
+            50% { 
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 30px rgba(59, 130, 246, 1));
+            }
         }
         
         .form-content {
@@ -175,35 +182,34 @@
         
         /* Section styling with glass effect */
         .section {
-            margin-bottom: 45px;
-            padding: 35px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         
         .section:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(59, 130, 246, 0.3);
         }
         
         .section-title {
-            font-size: 24px;
+            font-size: 22px;
             color: white;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
         }
         
         .section-icon {
-            font-size: 28px;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+            display: none;
         }
         
         .question {
@@ -231,29 +237,29 @@
         textarea,
         select {
             width: 100%;
-            padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.15);
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
             font-size: 15px;
             color: white;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             font-family: inherit;
         }
         
         input::placeholder,
         textarea::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.5);
         }
         
         input:focus,
         textarea:focus,
         select:focus {
             outline: none;
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(59, 130, 246, 0.6);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
             transform: translateY(-2px);
         }
         
@@ -281,33 +287,35 @@
         .radio-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
         
         .checkbox-item,
         .radio-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 18px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+            gap: 14px;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             cursor: pointer;
         }
         
         .checkbox-item:hover,
         .radio-item:hover {
-            background: rgba(255, 255, 255, 0.18);
-            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateX(8px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         input[type="checkbox"],
         input[type="radio"] {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             cursor: pointer;
             accent-color: #3b82f6;
         }
@@ -315,28 +323,28 @@
         .checkbox-item label,
         .radio-item label {
             cursor: pointer;
-            font-size: 14px;
-            color: white;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.95);
             flex: 1;
+            font-weight: 500;
         }
         
         /* Submit button with futuristic effect */
         .submit-btn {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3b82f6 100%);
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
             color: white;
             border: none;
-            padding: 20px 50px;
-            font-size: 18px;
-            border-radius: 50px;
+            padding: 18px 60px;
+            font-size: 16px;
+            border-radius: 12px;
             cursor: pointer;
-            font-weight: 700;
-            transition: all 0.4s ease;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             width: 100%;
-            margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(30, 60, 114, 0.4);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-top: 40px;
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
@@ -349,8 +357,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
         }
         
         .submit-btn:hover::before {
@@ -358,12 +366,13 @@
         }
         
         .submit-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(30, 60, 114, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.5);
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
         }
         
         .submit-btn:active {
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
         
         /* Modal with glassmorphism */
@@ -580,10 +589,7 @@
                 <form id="discoveryForm">
                     <!-- Client Information -->
                     <div class="section">
-                        <h2 class="section-title">
-                            <span class="section-icon">📋</span>
-                            Client Information
-                        </h2>
+                        <h2 class="section-title">Client Information</h2>
                         
                         <div class="question">
                             <label class="question-label">Company/Business Name <span class="required">*</span></label>
@@ -601,10 +607,7 @@
                     
                     <!-- Chatbot Personality -->
                     <div class="section">
-                        <h2 class="section-title">
-                            <span class="section-icon">💬</span>
-                            Chatbot Personality & Tone
-                        </h2>
+                        <h2 class="section-title">Chatbot Personality & Tone</h2>
                         
                         <div class="question">
                             <label class="question-label">How Should the Chatbot Communicate? <span class="required">*</span></label>
@@ -654,10 +657,7 @@
                     
                     <!-- Integration & Data -->
                     <div class="section">
-                        <h2 class="section-title">
-                            <span class="section-icon">🔗</span>
-                            Integration & Data Requirements
-                        </h2>
+                        <h2 class="section-title">Integration & Data Requirements</h2>
                         
                         <div class="question">
                             <label class="question-label">System Integrations Needed <span class="required">*</span></label>
@@ -732,10 +732,7 @@
                     
                     <!-- Handoff & Escalation -->
                     <div class="section">
-                        <h2 class="section-title">
-                            <span class="section-icon">👥</span>
-                            Handoff & Escalation
-                        </h2>
+                        <h2 class="section-title">Handoff & Escalation</h2>
                         
                         <div class="question">
                             <label class="question-label">Should Chatbot Transfer to Human Agent? <span class="required">*</span></label>
@@ -781,10 +778,7 @@
                     
                     <!-- Operating Hours -->
                     <div class="section">
-                        <h2 class="section-title">
-                            <span class="section-icon">⏰</span>
-                            Operating Hours & Availability
-                        </h2>
+                        <h2 class="section-title">Operating Hours & Availability</h2>
                         
                         <div class="question">
                             <label class="question-label">Should Chatbot Operate 24/7? <span class="required">*</span></label>
@@ -821,10 +815,7 @@
                     
                     <!-- Timeline & Budget -->
                     <div class="section">
-                        <h2 class="section-title">
-                            <span class="section-icon">📅</span>
-                            Timeline & Budget
-                        </h2>
+                        <h2 class="section-title">Timeline & Budget</h2>
                         
                         <div class="question">
                             <label class="question-label">Ideal Launch Timeline <span class="required">*</span></label>
@@ -872,10 +863,7 @@
                     
                     <!-- Additional Information -->
                     <div class="section">
-                        <h2 class="section-title">
-                            <span class="section-icon">💡</span>
-                            Additional Information
-                        </h2>
+                        <h2 class="section-title">Additional Information</h2>
                         
                         <div class="question">
                             <label class="question-label">Competitor Chatbots or Examples You Like <span class="required">*</span></label>
@@ -893,7 +881,7 @@
                         </div>
                     </div>
                     
-                    <button type="submit" class="submit-btn">🚀 Submit Discovery Form</button>
+                    <button type="submit" class="submit-btn">Submit Discovery Form</button>
                 </form>
             </div>
         </div>
@@ -1142,10 +1130,7 @@
                     
                     <!-- Business Overview -->
                     <div class="section">
-                        <h2 class="section-title">
-                            <span class="section-icon">🏢</span>
-                            Business Overview
-                        </h2>
+                        <h2 class="section-title">Business Overview</h2>
                         
                         <div class="question">
                             <label class="question-label">Industry/Business Type <span class="required">*</span></label>
@@ -1177,10 +1162,7 @@
                     
                     <!-- Meta Platform Requirements -->
                     <div class="section">
-                        <h2 class="section-title">
-                            <span class="section-icon">📱</span>
-                            Meta Platform Requirements
-                        </h2>
+                        <h2 class="section-title">Meta Platform Requirements</h2>
                         
                         <div class="question">
                             <label class="question-label">Which Meta platforms do you want the chatbot on? <span class="required">*</span></label>
@@ -1247,10 +1229,7 @@
                     
                     <!-- Chatbot Purpose -->
                     <div class="section">
-                        <h2 class="section-title">
-                            <span class="section-icon">🎯</span>
-                            Chatbot Purpose & Functionality
-                        </h2>
+                        <h2 class="section-title">Chatbot Purpose & Functionality</h2>
                         
                         <div class="question">
                             <label class="question-label">Primary Goal of Your Chatbot <span class="required">*</span></label>
